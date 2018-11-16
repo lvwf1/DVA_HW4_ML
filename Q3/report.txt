@@ -1,0 +1,62 @@
+****************************************
+Q3.1
+
+Linear Regression - 
+	Training Accuracy: 86%
+	Testing Accuracy: 82%
+
+SVM -
+	Training Accuracy: 98%
+	Testing Accuracy: 96%
+
+MLP - 
+	Training Accuracy: 100%
+	Testing Accuracy: 81%
+
+Random Forest - 
+	Training Accuracy: 100%
+	Testing Accuracy: 95%
+
+****************************************
+Q3.2 - Hyperparameter tuning
+
+Random Forest - 
+	n_estimators values tested (at least 3): 100, 200, 500
+
+	max_depth values tested (at least 3): 5,10,50,100
+		
+	Best combination of parameter values:
+		n_estimators: 500
+		max_depth: 50
+
+	Testing Accuracy before tuning (default parameters): 95%
+	Testing Accuracy after tuning: 96%
+
+
+SVM -
+	Kernels values tested: rbf, linear
+	C values tested (at least 3): 0.0001, 0.1, 100
+		
+	Best combination of parameter values: 
+		Kernel: rbf
+		C: 100
+
+	Testing Accuracy before tuning (default parameters): 96%
+	Testing Accuracy after tuning: 97%
+
+****************************************
+Q3.3
+
+For your SVM's CV run from Q3.2, state the highest mean testing accuracy 
+across the sets of parameter values and its corresponding mean train score and mean fit time. 
+
+SVM's highest mean testing/cross-validated accuracy (best score): 97%
+SVM's mean train score: 100%
+SVM's mean fit time: 0.043
+
+****************************************
+Q3.4
+
+Best Classifier: Random Forest Classifier
+Why: Random Forest achieves the highest 100% training Accuracy, 95% test accuracy, 96% test accuracy after tunning. The fit time is much faster SVM without standardizing the data though SVM is 1% more accurate. Individual decision trees can be trained in parallel, reduces overfitting, which ensures faster performance and higher accuracy.
+
