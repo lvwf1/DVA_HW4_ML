@@ -50,22 +50,18 @@ class RandomForest(object):
         # TODO: Create a sample dataset of size n by sampling with replacement
         #       from the original dataset XX.
         # Note that you would also need to record the corresponding class labels
-        # for the sampled records for training purposes.
+        # for the sampled records for training purposes. 
 
         samples = [] # sampled dataset
         labels = []  # class labels for the sampled records
-
         numbers = np.random.randint(1, n)
         s = set()
-
         for i in range(numbers):
             cur = np.random.randint(0, n-1)
             s.add(cur)
-
         for i in s:
             samples.append(XX[i][:-1])
             labels.append(XX[i][-1])
-
         return (samples, labels)
 
 
@@ -80,8 +76,8 @@ class RandomForest(object):
     def fitting(self):
         # TODO: Train `num_trees` decision trees using the bootstraps datasets
         # and labels by calling the learn function from your DecisionTree class.
-        for i, j in enumerate(self.decision_trees):
-            j.learn(self.bootstraps_datasets[i], self.bootstraps_labels[i])
+        for index, i in enumerate(self.decision_trees):
+            i.learn(self.bootstraps_datasets[index], self.bootstraps_labels[index])
         pass      
 
 

@@ -1,3 +1,4 @@
+from scipy import stats
 import numpy as np
 
 
@@ -78,11 +79,11 @@ def partition_classes(X, y, split_attribute, split_val):
                [2, 'cc', 28],                           0,
                [4, 'cc', 32]]                           1]
                
-    '''
-
+    ''' 
+    
     X_left = []
     X_right = []
-    
+
     y_left = []
     y_right = []
 
@@ -102,8 +103,9 @@ def partition_classes(X, y, split_attribute, split_val):
             else:
                 X_right.append(i)
                 y_right.append(y[index])
-
+    
     return (X_left, X_right, y_left, y_right)
+
     
 def information_gain(previous_y, current_y):
     # Inputs:
@@ -125,11 +127,10 @@ def information_gain(previous_y, current_y):
     info_gain = 0.45915
     """
 
-    prevH = entropy(previous_y)
-    curH = 0.0
+    info_gain = entropy(previous_y)
     length = len(previous_y)
     for i in current_y:
-        curLen = len(i)
-        curH = curH + 1.0*entropy(i)*curLen/length
-    info_gain = round(1.0*prevH - curH, 5)
+        info_gain -= (float)(len(i) * entropy(i))/length
     return info_gain
+    
+    

@@ -34,20 +34,14 @@ class DecisionTree(object):
         x_right = []
         y_right = []
         # find the maximum information gain
-        for i in range(len(X)):
-            for j in range(len(X[0])):
-                cur = X[i][j]
-                x1, x2, y1, y2 = partition_classes(X, y, j, cur)
-                curY = [y1, y2]
-                IG = information_gain(y, curY)
-                if IG > maxIG:
-                    maxIG = IG
-                    split_attribute = j
-                    split_val = cur
-                    x_left = x1
-                    y_left = y1
-                    x_right = x2
-                    y_right = y2
+        for i in range(len(X[0])):
+            for j in range(len(X)):
+                cur = X[j][i]
+            IG = information_gain(y, [partition_classes(X, y, i, cur)[2],partition_classes(X, y, i, cur)[3]])
+            if IG > maxIG:
+                maxIG = IG
+                split_attribute = i
+                split_val = cur
         self.tree['left'] = DecisionTree()
         self.tree['right'] = DecisionTree()
         self.tree['left'].learn(x_left, y_left)
